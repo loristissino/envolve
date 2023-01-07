@@ -1,0 +1,23 @@
+<?php
+
+$envolve_config = [
+    'key' => 'the_access_key_to_access_the_external_service',
+    'provider_api_entrypoint' => 'https://example.com/petitions',
+    'actions' => [
+        'list'=>'active-petitions',
+        'form'=>'sign',
+        'petition'=>'petition-text',
+        'confirm'=>'confirm',
+        'signatures'=>'petition-signatures',
+    ],
+    'transient_time' => 120,
+    'messages' => [
+        'signature_ok' => 'Grazie per la sottoscrizione della petizione. Ti è stata inviata una mail per convalidarla (controlla la cartella "spam" perché potrebbe essere finita lì).',
+        'signature_error' => 'Ci sono dei problemi con la sottoscrizione della petizione. Vanno corretti gli errori indicati qui sotto.',
+        'confirmation_ok' => 'Grazie per avere confermato la sottoscrizione della petizione. A breve apparirà nell\'elenco.',
+        'confirmation_already_ok' => 'Questa sottoscrizione risulta già confermata.',
+        'confirmation_error' => 'La sottoscrizione non è stata confermata a causa di qualche errore.',
+        'invalid_token' => 'Token di sicurezza non valido (ricaricare la pagina).',
+        'invalid_captcha' => 'Codice captcha non corretto.',
+    ]
+];
