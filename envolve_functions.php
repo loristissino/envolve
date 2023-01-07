@@ -36,7 +36,7 @@ function envolve_petition_form_shortcode( $atts, $content=null ) {
     
     $_SESSION['_form_url'] = $_SERVER['REQUEST_URI'];
     
-    if ( sizeof($_SESSION['_errors'])>0 ) {
+    if ( isset( $_SESSION['_errors'] ) and sizeof($_SESSION['_errors'])>0 ) {
         $html .= "<script>";
         foreach($_SESSION['_errors'] as $key=>$value) {
             $html .= "document.querySelector('#petitionsignature-${key}').classList.add('error');";
