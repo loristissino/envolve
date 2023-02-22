@@ -59,11 +59,15 @@ function envolve_petition_signatures_shortcode( $atts, $content=null ) {
     global $envolve_config;
     $slug=getFromArray( 'slug', $atts );
     $limit=getFromArray( 'limit', $atts, 20 );
+    $offset=getFromArray( 'offset', $atts, 0 );
+    $ordered_by=getFromArray( 'ordered_by', $atts, 'confirmed_at/DESC' );
+    $messages=getFromArray( 'messages', $atts, 'true' );
+    $lastnames=getFromArray( 'lastnames', $atts, 'true' );
     if ( !$slug ) {
         return '🔔 Note to the webmaster: slug not set.';
     }
 
-    $url = $envolve_config['provider_api_entrypoint'] . $envolve_config['actions']['signatures'] . '?key=' . $envolve_config['key'] . '&slug=' . $slug . '&limit='. $limit;
+    $url = $envolve_config['provider_api_entrypoint'] . $envolve_config['actions']['signatures'] . '?key=' . $envolve_config['key'] . '&slug=' . $slug . '&limit='. $limit . '&offset=' . $offset . '&orderedBy=' . $ordered_by . '&messages=' . $messages . '&lastnames=' . $lastnames;
     
     return retrieveFromExternalSource( $url, 'petition_signatures_' . $slug );
 }
