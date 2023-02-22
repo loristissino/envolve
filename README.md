@@ -47,12 +47,12 @@ Use the attribute slug to define which petition should be shown, like in
 You can also use other parameters, like    
 
     [... limit=30] // number of records shown
-    [... osset=100] // number of records skipped
+    [... offset=100] // number of records skipped
     [... ordered_by=created_at/DESC] // sorting order (*)
     [... messages=false] // no messages, only signatures
     [... lastnames=false] // no last names, only the initials
 
-The fields that can be used for the sorting are: `created_at`, 
+(*) The fields that can be used for the sorting are: `created_at`, 
 `confirmed_at`, `first_name`, `last_name`. After the field name, append
 `/DESC` for descending order and `/ASC` for ascending order.
 
